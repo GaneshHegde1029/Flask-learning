@@ -7,7 +7,9 @@
 {% block body %} 
 <div class="content">
     <h1>Table</h1>
-
+    {% if tasks|length < 1 %}
+    <h4>There is no current Todo. Click below to add!!</h4>
+    {% else %}
     <table>
         <tr>
             <th>Task</th>
@@ -26,6 +28,7 @@
         </tr>
         {% endfor %}
     </table>
+    {% endif %}
     <form action="/" method="POST">
         <input type="text" name="content" id="content">
         <input type="submit" value="Add Task">
